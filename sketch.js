@@ -9,7 +9,7 @@ function setup() {
   cnv.mousePressed(playSound);
   
   noise = new p5.Noise();
-  env = new p5.Envelope(0, 0.1);
+  env = new p5.Envelope(0.01, 1.0, 0.1, 0.0);
   reverb = new p5.Reverb();
   noise.disconnect();
   noise.connect(env);
@@ -32,7 +32,7 @@ function draw() {
   for(let s of system) {
     s.run();
   }
-  text("click to play", width / 2, 20);
+  text("click to beat", width / 2, 20);
   text("decay " + round(randomTime, 2), width / 2, 40);
 }
 
