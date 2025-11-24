@@ -1,5 +1,7 @@
 let noise, osc, env, reverb;
 let randomTime = 0;
+let systems = [];
+
 
 function setup() {
   describe("a sketch that plays a quick burst of noise through a reverb effect when clicked. each time the decay time of the reverb is changed.");
@@ -29,4 +31,9 @@ function draw() {
   background(220);
   text("click to play", width / 2, 20);
   text("decay " + round(randomTime, 2), width / 2, 40);
+}
+
+function mousePressed() {
+  systems.push(new HeartbeatSystem(createVector(width/2, height/2)));
+  playSound();
 }
