@@ -28,7 +28,10 @@ function playSound() {
 }
 
 function draw() {
-  background(220);
+  background(0);
+  for(let s of system) {
+    s.run();
+  }
   text("click to play", width / 2, 20);
   text("decay " + round(randomTime, 2), width / 2, 40);
 }
